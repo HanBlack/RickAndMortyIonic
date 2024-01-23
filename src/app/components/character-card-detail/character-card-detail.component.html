@@ -1,0 +1,62 @@
+<ion-card >
+  <ion-card-header>
+    <ion-card-title class="titul">{{ character.name }}</ion-card-title>
+    <ion-img [src]="character.image"></ion-img>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>
+      <ion-card-subtitle>
+        <ion-icon name="ellipse"
+                  [ngClass]="{
+              'alive': character.status === 'Alive',
+              'dead': character.status === 'Dead',
+              'unknown': character.status === 'unknown'
+            }"></ion-icon>
+        {{ character.status }} - {{ character.species }}
+      </ion-card-subtitle>
+      <ion-card-subtitle [ngSwitch]="character.gender">
+        <div *ngSwitchCase="'Male'">
+          <ion-icon name="male" style="color: dodgerblue;"></ion-icon> Male
+        </div>
+        <div *ngSwitchCase="'Female'">
+          <ion-icon name="female" style="color: fuchsia;"></ion-icon> Female
+        </div>
+        <div *ngSwitchDefault>
+          <ion-icon name="help"></ion-icon> Gender unknown
+        </div>
+      </ion-card-subtitle>
+    </p><br>
+
+    <p>
+      <ion-card-subtitle>Origin from: </ion-card-subtitle>
+      <a *ngIf="origin; else noOrigin"
+         [routerLink]="['/location-details', origin.id]"
+         class="link">
+        {{ character.origin.name }}
+      </a>
+      <ng-template #noOrigin>Unknown</ng-template>
+    </p><br>
+
+    <p>
+      <ion-card-subtitle>Last known location: </ion-card-subtitle>
+      <a *ngIf="lastKnownLocation; else noLocation"
+         [routerLink]="['/location-details', lastKnownLocation.id]"
+         class="link">
+        {{ character.location.name }}
+      </a>
+      <ng-template #noLocation>Unknown</ng-template>
+    </p><br>
+
+    <p>
+      <ion-card-subtitle>First seen in: </ion-card-subtitle>
+      <a *ngIf="firstEpisode; else noEpisode"
+         [routerLink]="['/episode-details', firstEpisode.id]"
+         class="link">
+        {{ firstEpisode.episode }}: "{{ firstEpisode.name }}"
+      </a>
+      <ng-template #noEpisode>Unknown</ng-template>
+
+    </p>
+  </ion-card-content>
+</ion-card>

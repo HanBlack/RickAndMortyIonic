@@ -1,0 +1,15 @@
+ion-col{
+  animation-duration: 0.5s;
+
+  ion-button{
+    --background: greenyellow;
+
+    ion-icon{
+      color: black;
+    }
+
+    span{
+      color: black;
+    }
+  }
+}

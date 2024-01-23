@@ -1,0 +1,24 @@
+<ion-header class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-item>
+      <ion-icon name="arrow-back-circle" class="back"
+                (click)="volver()"></ion-icon>
+      <span style="margin-left: 20px;">Results of:&nbsp; ' {{ textbus }} '</span>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="animate__animated animate__fadeIn">
+
+  <ion-row *ngIf="charactersFiltered" class="fondo">
+    <ion-col *ngFor="let character of charactersFiltered" size="6"
+             class="animate__animated animate__pulse">
+
+      <app-character-card-list
+              [character]="character">
+      </app-character-card-list>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>

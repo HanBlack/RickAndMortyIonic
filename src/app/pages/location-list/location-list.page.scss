@@ -1,0 +1,54 @@
+.titulo{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  text-align: start;
+
+  color: greenyellow;
+
+  text-shadow:
+          -3px -3px 0 #000,
+          3px -3px 0 #000,
+          -3px 3px 0 #000,
+          3px 3px 0 rgb(0, 0, 0);
+
+  padding-top: 50px;
+}
+
+.buscador{
+  padding: 10px 20px 50px 20px;
+}
+
+ion-content{
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --background: url('../../../assets/img/bg.jpg') no-repeat center center / cover;
+
+  ion-row{
+    ion-col{
+      animation-duration: 0.5s;
+
+      ion-button{
+        --background: greenyellow;
+
+        ion-icon{
+          color: black;
+        }
+
+        span{
+          color: black;
+        }
+      }
+    }
+  }
+
+  ion-list{
+    animation-duration: 0.50s;
+
+    ion-item{
+      margin: 0 15px 0 15px;
+      border-bottom: 1px solid rgb(66, 66, 66);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<ion-header class="animate__animated animate__fadeIn">
+    <ion-toolbar>
+        <ion-title class="titulo">Rick & Morty Characters</ion-title>
+
+        <ion-searchbar class="bus" (keyup.enter)="searchCharacter(texto.value)" #texto></ion-searchbar>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content *ngIf="characterResults" class="animate__animated animate__fadeIn">
+
+
+    <ion-row>
+        <ion-col *ngFor="let character of characterList" size="6" class="animate__animated animate__pulse">
+
+            <app-character-card-list
+                    [character]="character">
+            </app-character-card-list>
+
+        </ion-col>
+    </ion-row>
+
+    <app-pages-buttons
+            [currPage]="page"
+            [next]="characterResults.info.next"
+            [prev]="characterResults.info.prev"
+            (pageMove)="pageMove($event)">
+    </app-pages-buttons>
+
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-item>
+      <ion-icon name="arrow-back-circle" class="back"
+                (click)="volver()"></ion-icon>
+      <span style="margin-left: 20px;">Results of:&nbsp; ' {{ textoBuscado }} '</span>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="locationsFiltered" class="animate__animated animate__fadeIn">
+  <ion-list class="animate__animated animate__backInUp">
+    <ion-item *ngFor="let location of locationsFiltered" (click)="locationDetails(location.id)">
+      <ion-label>
+        {{ location.name }} - {{ location.type }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

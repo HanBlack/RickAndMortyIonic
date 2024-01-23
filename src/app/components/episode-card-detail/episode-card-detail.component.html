@@ -1,0 +1,16 @@
+<ion-card  class="animate__animated animate__zoomIn">
+  <ion-card-header>
+    <ion-card-title class="titul">{{ episode.episode }} - {{ episode.name }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>Air Date: {{ episode.air_date }}</p>
+    <br>
+    <p>Characters:</p>
+    <ion-row *ngIf="characters">
+      <ion-col *ngFor="let character of characters" size="3" (click)="characterDetails(character.id)">
+        <ion-img [src]="character.image"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>

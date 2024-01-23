@@ -1,0 +1,17 @@
+<ion-card class="animate__animated animate__zoomIn">
+  <ion-card-header>
+    <ion-card-title class="titul">{{ location.name }} - {{ location.type }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>Dimension: {{ location.dimension }}</p>
+    <br>
+    <p>Residents:</p>
+    <ion-row *ngIf="residents; else noResidents">
+      <ion-col *ngFor="let resident of residents" size="3" (click)="residentDetails(resident.id)">
+        <ion-img [src]="resident.image"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ng-template #noResidents>Unknown</ng-template>
+  </ion-card-content>
+</ion-card>

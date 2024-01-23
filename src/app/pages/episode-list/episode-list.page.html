@@ -1,0 +1,25 @@
+<ion-header class="animate__animated animate__fadeIn">
+    <ion-toolbar>
+        <ion-title class="titul">Rick & Morty Episodes</ion-title>
+
+        <ion-searchbar class="bus" (keyup.enter)="searchEpisode(text.value)" #text></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="episodeResults" class="animate__animated animate__fadeIn">
+
+    <ion-list class="animate__animated animate__backInUp">
+        <ion-item *ngFor="let episode of episodeList" (click)="episodeDetails(episode.id)">
+            <ion-label>
+                {{ episode.episode }} - {{ episode.name }}
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    <app-pages-buttons
+            [currPage]="page"
+            [next]="episodeResults.info!.next"
+            [prev]="episodeResults.info!.prev"
+            (pageMove)="pageMove($event)">
+    </app-pages-buttons>
+</ion-content>

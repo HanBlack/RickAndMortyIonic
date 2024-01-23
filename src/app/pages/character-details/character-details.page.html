@@ -1,0 +1,21 @@
+<ion-header class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-item>
+      <ion-icon name="arrow-back-circle" class="back"
+                (click)="volver()"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content *ngIf="character$ | async as character" class="animate__animated animate__fadeIn">
+  <ion-row class="fondo">
+    <ion-col class="animate__animated animate__rubberBand">
+
+      <app-character-card-detail
+              [character]="character">
+      </app-character-card-detail>
+
+    </ion-col>
+  </ion-row>
+</ion-content>

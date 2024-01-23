@@ -1,0 +1,22 @@
+.back{
+  color: greenyellow;
+  font-size: 35px;
+}
+
+ion-content{
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --background: url('../../../assets/img/bg.jpg') no-repeat center center / cover;
+
+  ion-list{
+    animation-duration: 0.50s;
+
+    ion-item{
+      margin: 0 15px 0 15px;
+      border-bottom: 1px solid rgb(66, 66, 66);
+    }
+  }
+
+}
